@@ -103,6 +103,7 @@ Determine who (if anyone) has won
 		}
 		else
 		{
+            System.out.println("Draw");
 			return BLANK;
 		}
 	}
@@ -123,16 +124,51 @@ Start a new game
 		}
 		crossTurn = true;
 	}
-    
-    public void newUpdate(Update update)
+    public void play (int x, int y)
     {
-        board [update.getX][update.getY] = update.getValue
+        int turncounter = 0;
+        while (turncounter !=10)
+        {
+             
+             turn(x,y);
+             //System.out.println(.get(1,1));
+             //System.out.println("at the start");
+            for(int i = 0; i <3; i++)
+            {
+                for (int j =0;j <3;j ++)
+                {
+                    //System.out.println("looping");
+                    //System.out.println(.get(i,j));
+                    if (get(i,j) == NoughtsCrosses.BLANK)
+                    {
+                        System.out.print(" (" + i + ","+ j+ ") ");
+                        //System.out.println("Checking for blanks");
+                
+                    }
+                    else if (get(i,j)==NoughtsCrosses.CROSS)
+                    {
+                        System.out.print(" (" + i + ","+ j+ ") + ");
+                    }
+                    else if (get(i,j)== NoughtsCrosses.NOUGHT)
+                    {
+                        System.out.print(" (" + i + ","+ j+ ")- ");
+                    }
+                    System.out.println("");
+                }
+            turncounter = turncounter + 1;
+            }
+        }
     }
     
-    public Update makeUpdate(int x, int y, int value)
-    {
-        return Upadte update = new Update (x,y, value)
-    }
+ //   public void newUpdate(Update update)
+ //   {
+  //      board [update.getX][update.getY] = update.getValue
+  //  }
+    
+  //  public Update makeUpdate(int x, int y, int value)
+  //  {
+   //     return Upadte update = new Update (x,y, value)
+   // }
          
 
 }

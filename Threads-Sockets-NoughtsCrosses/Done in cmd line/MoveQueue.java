@@ -6,7 +6,7 @@ public class MoveQueue
     
     public void offer(Move move)
     {
-        queue.offer(update);
+        queue.offer(move);
     }
     
     public Move take()
@@ -18,7 +18,7 @@ public class MoveQueue
             {
                 return(queue.take());
             }
-           catch(InterruptedExpection e)
+           catch(InterruptedException e)
             {
             
             

@@ -1,12 +1,12 @@
 // Move class used to send new board positions to the openent
 public class Move
 {
-   // private String sender; 
+   //private String sender; 
     private int x;
     private int y;
     private int value;
     
-    MOve(int x, int y, int value)
+    Move(int x, int y, int value)
     {
         //this.sender = sender;
         this.x = x;
@@ -15,11 +15,11 @@ public class Move
         
     
     }
-    
-   // public String getSender()
-   // {
-    //    return sender;
-   // }
+   
+   //public String getSender()
+  // {
+  //     return sender;
+  // }
     public int getX()
     {
         return x;

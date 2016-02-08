@@ -1,0 +1,53 @@
+Solved exercise: Messaging system based on client-server architecture
+---------------
+
+Lecture solution in communication-and-concurrency/6-blocking-queue/messaging/
+
+Implement a simple messaging system, based on a client-server
+architecture, using threads to serve the clients. Races and deadlocks
+should be avoided.
+
+The server should be run as 
+
+  $ java Server
+
+The clients should be run as 
+
+  $ java <user nickname> <server's machine address>
+
+If there already is a user with this nickname, you need to decide what
+to do. You get marks for good design decisions.
+
+Once my client is running, I can send a message to John by writing
+"John" <enter> "Hello. How are you?" <enter>. So the first line is the
+adressee and the second line is the message.
+
+Proposed solution
+-----------------
+
+It doesn't get full marks, as some design decisions are not very good,
+as you will see.
+
+There are a variety of ways of approaching this. I will take the
+opportunity to teach Maps and BlockingQueues:
+
+https://docs.oracle.com/javase/tutorial/collections/interfaces/map.html
+https://docs.oracle.com/javase/7/docs/api/java/util/concurrent/ConcurrentHashMap.html
+https://docs.oracle.com/javase/7/docs/api/java/util/concurrent/ConcurrentMap.html
+https://docs.oracle.com/javase/7/docs/api/java/util/concurrent/BlockingQueue.html
+
+Solution outline
+----------------
+
+We have two threads for each client.
+
+We have 2*n threads in a server attending n clients.
+
+Each thread, in the client or server, does either output or input, but
+not both.
+
+In the server, we use queues to communicate between threads.
+
+We use a map to keep a table associating queues to clients.
+
+See picture: https://goo.gl/photos/xvzgN1E19nGBJgcj7
